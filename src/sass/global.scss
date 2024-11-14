@@ -1,0 +1,18 @@
+@use './Variable.scss' as variable;
+
+.bg_Black{
+    background-color: variable.$black;
+}
+
+.bg_muted{
+    background-color: variable.$DarkGray;
+}
+
+
+.text_color{
+    color: variable.$VeryDarkGray;
+}
+
+.text_muted{
+    color: variable.$DarkGray;
+}
