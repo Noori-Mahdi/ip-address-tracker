@@ -3,6 +3,14 @@ export type InfoItem = {
     info: string;
 };
 
+export interface MapComponentPropsType {
+    location : [number,number] | [],
+}
+
 export interface InfoBoxPropsType {
-    list : InfoItem[]
+    list : InfoItem[] | undefined;
+}
+
+export interface SearchBoxPropsType{
+    onSearch: (search:string) => void;
 }
