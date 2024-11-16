@@ -12,5 +12,5 @@ export interface InfoBoxPropsType {
 }
 
 export interface SearchBoxPropsType{
-    onSearch: (search:string) => void;
+    onSearch: (search:string, type:'IP'|'Domain') => void;
 }

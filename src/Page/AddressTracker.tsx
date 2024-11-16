@@ -13,12 +13,21 @@ export const AddressTracker = () => {
   const [data, setData] = useState<InfoItem[]>();
   const [location, setLocation] = useState<[number, number] | []>([]);
 
-  const handleSearch = async (search: string) => {
+  const handleSearch = async (search: string, type:string) => {
     try {
+      let res
       setLoading(true);
-      const res = await axios.get(
-        `https://geo.ipify.org/api/v2/country,city?apiKey=at_cEPJqo1TW3ejCadbdbVddr00v0Gun&ipAddress=${search}`
-      );
+
+      if(type === 'IP'){
+        res = await axios.get(
+          `https://geo.ipify.org/api/v2/country,city?apiKey=at_cEPJqo1TW3ejCadbdbVddr00v0Gun&ipAddress=${search}`
+        );
+      }else{
+        res = await axios.get(
+          `https://geo.ipify.org/api/v2/country,city?apiKey=at_cEPJqo1TW3ejCadbdbVddr00v0Gun&domain=${search}`
+        );
+      }
+
 
       setData([
         { title: "IP Address", info: res.data.ip },
